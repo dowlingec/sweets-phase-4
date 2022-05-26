@@ -12,9 +12,6 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
     end
 
     private
-    def vendor_params
-        params.permit(:id, :name)
-    end
 
     def render_record_not_found
         render json: { "error": "Vendor not found" }

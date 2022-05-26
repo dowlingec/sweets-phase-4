@@ -12,9 +12,6 @@ class SweetsController < ApplicationController
     end
 
     private
-    def sweet_params
-        params.permit(:id, :name)
-    end
 
     def render_record_not_found
         render json: { "error": "Sweet not found" }

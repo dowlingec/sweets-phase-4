@@ -1,6 +1,6 @@
 class VendorSweetsController < ApplicationController
     rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
-# rescue_from ActiveRecord::RecordInvalid, with: :
+# rescue_from ActiveRecord::RecordInvalid, with: :invalid_record
     
     def create
         vendorsweet = VendorSweet.create!(vendor_sweets_params)
