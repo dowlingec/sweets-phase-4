@@ -8,7 +8,7 @@ rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
 
     def show
         vendor = Vendor.find_by!(id: params[:id])
-        render json: vendor, include: [:sweets]
+        render json: vendor, include: [:sweets, :vendor_sweet]
     end
 
     private

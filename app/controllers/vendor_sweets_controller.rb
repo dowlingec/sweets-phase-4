@@ -1,10 +1,7 @@
 class VendorSweetsController < ApplicationController
+    rescue_from ActiveRecord::RecordNotFound, with: :render_record_not_found
 # rescue_from ActiveRecord::RecordInvalid, with: :
-    # DELETE ME!!!
-    def index
-        vendorsweets = VendorSweet.all
-        render json: vendorsweets
-    end
+    
     def create
         vendorsweet = VendorSweet.create!(vendor_sweets_params)
         render json: vendorsweet
@@ -24,4 +21,7 @@ class VendorSweetsController < ApplicationController
     # def invalid_record
     #     render json: { "errors": ["validation errors"]}
     # end
+    def render_record_not_found
+        render json: { "error": "VendorSweet not found" }
+    end
 end
